@@ -21,6 +21,8 @@ function App() {
         <Route path="/sos" element={<SOS />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/about-us" element={<AboutUs />} />
+  <Route path="/login" element={<Login/>}/>
+   <Route path="/register" element={<Register/>} />
       </Routes>
     </Router>
   );
