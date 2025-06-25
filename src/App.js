@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,useNavigate } from "react-router-dom";
 
 import Home from "./pages/Home";
 import EmergencyContacts from "./pages/EmergencyContacts";
@@ -7,6 +7,8 @@ import YourZone from "./pages/YourZone";
 import SOS from "./pages/SOS";
 import Settings from "./pages/Settings";
 import AboutUs from "./pages/AboutUs";
+import Login from "./pages/Login"
+import Register from "./pages/Register"
 
 import Navbar from "./Components/Navbar";
 
@@ -21,11 +23,21 @@ function App() {
         <Route path="/sos" element={<SOS />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/about-us" element={<AboutUs />} />
-  <Route path="/login" element={<Login/>}/>
+  <Route path="/login" element={<LoginWrapper/>}/>
    <Route path="/register" element={<Register/>} />
       </Routes>
     </Router>
   );
+}
+
+function LoginWrapper() {
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    navigate("/"); // Navigate to homepage after login
+  };
+//console.log(Login); // before the return in App.js
+
+  return <Login onLogin={handleLogin} />;
 }
 
 export default App;
